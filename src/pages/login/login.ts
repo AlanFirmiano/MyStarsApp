@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../providers/user';
-
+import { TabsPage } from '../tabs/tabs';
 /**
  * Generated class for the LoginPage page.
  *
@@ -22,8 +22,8 @@ export class LoginPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    public userProvider: UserProvider) {
-  }
+    public userProvider: UserProvider
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -36,7 +36,8 @@ export class LoginPage {
         .subscribe(
           data => {
             console.log(data)
-            this.navCtrl.pop();
+            localStorage.setItem("user",data.name);
+            this.navCtrl.setRoot(TabsPage);
           },
           error => console.log(error)
         );                 

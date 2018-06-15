@@ -1,11 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Novo Post
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item>
+      <ion-input (input)="texto=textoinput.value" #textoinput type="text" placeholder="Texto"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button color="secondary" (click)="novoPost()">Enviar</button>
 </ion-content>

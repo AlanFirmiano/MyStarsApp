@@ -9,9 +9,9 @@ import 'rxjs/add/operator/catch';
   and Angular DI.
 */
 @Injectable()
-export class UserProvider {
+export class PostProvider {
 
-  url: string = "http://rest.learncode.academy/api/alan/users";
+  url: string = "http://rest.learncode.academy/api/alan/posts";
 
   constructor(public http: Http) {
   }
@@ -28,25 +28,14 @@ export class UserProvider {
     return !!localStorage.getItem("token"); 
   }
 
-  insertUser(name, email, password){
+  insertPost(texto){
     return this.http.post(this.url, {
-      name, email, password
+      "user":localStorage.getItem('user'),texto
     }).map((response: Response) => (response.json()));
   }
 
-  singIn(email, password){
-    return this.http.post(this.url + "/signin", {
-      email,
-      password
-    }).map((response:Response) => {
-      let r = response.json();
-      this.setToken(r.token);
-      return r;
-    });
-  }
-
-  getUsers(){
-    return this.http.get(this.url + "?token=" + this.getToken())
+  getPosts(){
+    return this.http.get(this.url)
       .map((response:Response)=>(response.json()));
   }
 
