@@ -24,13 +24,20 @@ export class PostProvider {
     localStorage.setItem("token", token);
   }
 
+  likePost(post){
+    return this.http.put(this.url+"/"+post.id, post).map((response: Response) => (response.json()));
+  }
+
   hasToken(){
     return !!localStorage.getItem("token"); 
   }
 
-  insertPost(texto){
+  insertPost(post){
+    post.likes = 0;
     return this.http.post(this.url, {
-      "user":localStorage.getItem('user'),texto
+      "user": localStorage.getItem('user'),
+      "texto": post.texto,
+      "likes": post.likes      
     }).map((response: Response) => (response.json()));
   }
 

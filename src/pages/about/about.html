@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
       Novo Post
     </ion-title>
@@ -8,9 +8,20 @@
 
 <ion-content padding>
   <ion-list>
+    @{{user}}
     <ion-item>
       <ion-input (input)="texto=textoinput.value" #textoinput type="text" placeholder="Texto"></ion-input>
     </ion-item>
   </ion-list>
-  <button ion-button color="secondary" (click)="novoPost()">Enviar</button>
 </ion-content>
+
+<ion-footer >
+    <ion-toolbar color="primary">
+      <ion-buttons end>
+        <button (click)="novoPost()" ion-button icon-end color="royal">
+          Send
+          <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>

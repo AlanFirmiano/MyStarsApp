@@ -2,6 +2,7 @@ import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { User } from '../models/user';
 
 /*
   Generated class for the UserProvider provider.
@@ -28,9 +29,11 @@ export class UserProvider {
     return !!localStorage.getItem("token"); 
   }
 
-  insertUser(name, email, password){
+  insertUser(user:User){
     return this.http.post(this.url, {
-      name, email, password
+      "name":user.name,
+      "email":user.email,
+      "senha":user.senha
     }).map((response: Response) => (response.json()));
   }
 

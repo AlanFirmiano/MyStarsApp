@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>logon</ion-title>
+  <ion-navbar  color="primary">
+    <ion-title><ion-icon name="contact"></ion-icon> Novo Usuario</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,15 +17,15 @@
   
   <ion-list>
     <ion-item>
-      <ion-input (input)="name=nameinput.value" #nameinput type="text" placeholder="Name"></ion-input>
+      <ion-input (input)="user.name=nameinput.value" #nameinput type="text" placeholder="Name"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input (input)="email=emailinput.value" #emailinput type="text" placeholder="Email"></ion-input>
+      <ion-input (input)="user.email=emailinput.value" #emailinput type="text" placeholder="Email"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input (input)="password=passwordinput.value" #passwordinput type="password" placeholder="Password"></ion-input>
+      <ion-input (input)="user.senha=passwordinput.value" #passwordinput type="password" placeholder="Password"></ion-input>
     </ion-item>
 
   </ion-list>

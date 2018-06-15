@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../providers/user';
 import { TabsPage } from '../tabs/tabs';
+import { User } from '../../models/user';
 /**
  * Generated class for the LoginPage page.
  *
@@ -15,9 +16,7 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  name: String;
-  email: String;
-  password: String;
+  user: User = new User;
 
   constructor(
     public navCtrl: NavController, 
@@ -30,9 +29,7 @@ export class LoginPage {
   }
 
   logon(){
-    this.userProvider.insertUser(this.name,
-                                this.email,
-                                this.password)
+    this.userProvider.insertUser(this.user)
         .subscribe(
           data => {
             console.log(data)

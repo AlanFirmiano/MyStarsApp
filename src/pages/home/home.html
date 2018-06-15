@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Posts</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -16,5 +16,14 @@
         {{post?.texto}}
       </p>
     </ion-card-content>
+    <ion-row>
+        <ion-col>
+          <button (click)="like(post)" ion-button icon-start clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{post?.likes}} Likes</div>
+          </button>
+        </ion-col>
+        
+      </ion-row>
   </ion-card>
 </ion-content>
